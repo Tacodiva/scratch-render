@@ -172,13 +172,8 @@ class RenderWebGL extends EventEmitter {
 
         /** @type {WebGLRenderingContext} */
         const gl = this._gl = RenderWebGL._getContext(canvas);
-
         if (!gl) {
             throw new Error('Could not get WebGL context: this browser or environment may not support WebGL.');
-        }
-
-        if (!gl.getExtension('ANGLE_instanced_arrays') && !gl.drawArraysInstanced) {
-            throw new Error('Instanced rendering not supported.');
         }
 
         /** @type {RenderWebGL.UseGpuModes} */
