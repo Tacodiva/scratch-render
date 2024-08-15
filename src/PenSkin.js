@@ -110,7 +110,7 @@ class PenSkin extends Skin {
 
         if (!gl.drawArraysInstanced) {
             // Fallback to ANGLE_instanced_arrays
-            this.instanced_arrays_ext = gl.getExtension("ANGLE_instanced_arrays");
+            this.instanced_arrays_ext = gl.getExtension('ANGLE_instanced_arrays');
         }
 
         this.onNativeSizeChanged = this.onNativeSizeChanged.bind(this);
@@ -404,7 +404,11 @@ class PenSkin extends Skin {
             this.instanced_arrays_ext.vertexAttribDivisorANGLE(this.a_lineThicknessAndLength_loc, 1);
             this.instanced_arrays_ext.vertexAttribDivisorANGLE(this.a_penPoints_loc, 1);
 
-            this.instanced_arrays_ext.drawArraysInstancedANGLE(gl.TRIANGLES, 0, 6, this.attribute_index / PEN_ATTRIBUTE_STRIDE);
+            this.instanced_arrays_ext.drawArraysInstancedANGLE(
+                gl.TRIANGLES,
+                0, 6,
+                this.attribute_index / PEN_ATTRIBUTE_STRIDE
+            );
 
             this.instanced_arrays_ext.vertexAttribDivisorANGLE(this.a_lineColor_loc, 0);
             this.instanced_arrays_ext.vertexAttribDivisorANGLE(this.a_lineThicknessAndLength_loc, 0);
@@ -414,7 +418,11 @@ class PenSkin extends Skin {
             gl.vertexAttribDivisor(this.a_lineThicknessAndLength_loc, 1);
             gl.vertexAttribDivisor(this.a_penPoints_loc, 1);
 
-            gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, this.attribute_index / PEN_ATTRIBUTE_STRIDE);
+            gl.drawArraysInstanced(
+                gl.TRIANGLES,
+                0, 6,
+                this.attribute_index / PEN_ATTRIBUTE_STRIDE
+            );
 
             gl.vertexAttribDivisor(this.a_lineColor_loc, 0);
             gl.vertexAttribDivisor(this.a_lineThicknessAndLength_loc, 0);
