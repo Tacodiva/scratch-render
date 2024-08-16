@@ -128,8 +128,6 @@ class PenSkin extends Skin {
                 1, 0,
                 0, 0,
                 1, 1,
-                1, 1,
-                0, 0,
                 0, 1
             ]), gl.STATIC_DRAW);
         } else {
@@ -439,8 +437,8 @@ class PenSkin extends Skin {
             this.glVertexAttribDivisor(this.a_penPoints_loc, 1);
 
             this.glDrawArraysInstanced(
-                gl.TRIANGLES,
-                0, 6,
+                gl.TRIANGLE_STRIP,
+                0, 4,
                 this.attribute_index / PEN_ATTRIBUTE_STRIDE
             );
 
